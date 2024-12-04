@@ -24,6 +24,7 @@ const game = {
 
 // log JUST the name of the pokemon number 59
 // console.log(pokemon[58].name);
+// this could be improved by using array methods to find specifically the pokemon object with # 59, but this quick-and-dirty works for now
 
 // familiarize with game
 // console.log(game);
@@ -52,9 +53,43 @@ Exercise 4
 Solve Exercise 4 here:
 */
 
-console.log(game.party);
+// console.log(game.party);
 game.party.push(pokemon[6]);
-console.log(game.party);
+// this could be improved by using array methods to filter the pokemon array for the starter pokemon, but this quick-and-dirty works for now
+// console.log(game.party);
+
+
+
+/*
+Exercise 5
+1. Choose three more Pokémon from the `pokemon` array and add them to your party.
+2. Consider different attributes like 'type' or 'HP' for your selection. Which array method will you use to add them?
+
+
+Solve Exercise 5 here:
+*/
+
+
+
+game.party.push(pokemon[40]);
+game.party.push(pokemon[59]);
+game.party.push(pokemon[99]);
+// console.log(game.party);
+// not sure what part 2 of exercise 5 is asking for? The object for each pokemon includes all the attributes
+
+
+
+
+/*
+Exercise 6
+1. Set the `completed` property to true for gyms with a difficulty below 3.
+2. Think about how you'd loop through the `gyms` array to check and update the `completed` property.
+
+
+Solve Exercise 6 here:
+*/
+
+console.log(game.gyms);
 
 
 
