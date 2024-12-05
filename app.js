@@ -69,13 +69,26 @@ Exercise 5
 Solve Exercise 5 here:
 */
 
+// I DID NOT REALIZE THIS WAS ASKING ME TO ADD ONLY STARTER POKEMON?? per exercise 7. Thaaaaaaat makes more sense but is definitely not clear here
 
-
-game.party.push(pokemon[40]);
-game.party.push(pokemon[59]);
-game.party.push(pokemon[99]);
+// initial quick-and-dirty of just picking random pokemon because _student did not understand the assignment_
+// game.party.push(pokemon[40]);
+// game.party.push(pokemon[59]);
+// game.party.push(pokemon[99]);
 // console.log(game.party);
 // not sure what part 2 of exercise 5 is asking for? The object for each pokemon includes all the attributes
+
+// console.log(pokemon.length);
+
+for (let i=0; i<pokemon.length; i++) {
+    if(pokemon[i].starter) {
+        console.log(pokemon[i].number);
+        game.party.push(pokemon[i]);
+    }
+}
+// need to make this exclude the pikachu that we added in exercise 
+
+
 
 
 
@@ -89,7 +102,36 @@ Exercise 6
 Solve Exercise 6 here:
 */
 
-console.log(game.gyms);
+// console.log(game.gyms);
+// I'm going to do this with a quick-and-dirty for loop because I'm out of time. Note to self to practice forEach later
+for (let i = 0; i < game.gyms.length; i++) {
+    if (game.gyms[i].difficulty < 3) {
+        game.gyms[i].completed = true;
+    };
+}
+// console.log(game.gyms);
 
 
+/*
+Exercise 7
+1. Evolve the starter Pokémon you added to your party earlier. Each starter Pokémon evolves into a specific one.
+2. How would you replace the current starter Pokémon in your party with its evolved form?
 
+Hint: 
+  - Pokemon 1: Bulbasaur evolves into Pokemon 2: Ivysaur
+  - Pokemon 4: Charmander evolves into Pokemon 5: Charmeleon
+  - Pokemon 7: Squirtle evolves into Pokemon 8: Wartortle
+  - Pokemon 25: Pikachu evolves into Pokemon 26: Raichu
+
+More Hints: The existing starter Pokemon will be *replaced* in your party with the Pokemon it evolved into. When working with an array of objects, the splice() array method is ideal for replacing one element with another. 
+
+
+Solve Exercise 7 here:
+*/
+
+// console.log(game.party)
+
+// again a quick and dirty for loop÷
+for (let i = 0; i < game.party.length; i++) {
+    console.log(game.party[i].number);
+}
