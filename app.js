@@ -19,15 +19,21 @@ const game = {
     ],
 }
 
+
+// exercise 1
 // display every item in the array
-// console.dir(pokemon, { maxArrayLength: null });
+// console.dir(pokemon, { maxArrayLength: null })
 
 // log JUST the name of the pokemon number 59
 // console.log(pokemon[58].name);
 // this could be improved by using array methods to find specifically the pokemon object with # 59, but this quick-and-dirty works for now
 
-// familiarize with game
-// console.log(game);
+
+// exercise 2
+// console.log(game)
+
+
+
 
 
 /*
@@ -41,7 +47,6 @@ Solve Exercise 3 here:
 
 
 game.difficulty = "easy";
-// console.log(game);
 
 
 /*
@@ -53,7 +58,6 @@ Exercise 4
 Solve Exercise 4 here:
 */
 
-// console.log(game.party);
 game.party.push(pokemon[6]);
 // this could be improved by using array methods to filter the pokemon array for the starter pokemon, but this quick-and-dirty works for now
 // console.log(game.party);
@@ -72,23 +76,20 @@ Solve Exercise 5 here:
 // I DID NOT REALIZE THIS WAS ASKING ME TO ADD ONLY STARTER POKEMON?? per exercise 7. Thaaaaaaat makes more sense but is definitely not clear here
 // ok but exercise 9 makes it seem like maybe this detail wasn't required here? Idk I'm leaving it
 
-// initial quick-and-dirty of just picking random pokemon because _student did not understand the assignment_
+// initial solution, just picking random pokemon because _student did not understand the assignment_
 // game.party.push(pokemon[40]);
 // game.party.push(pokemon[59]);
 // game.party.push(pokemon[99]);
 // console.log(game.party);
-// not sure what part 2 of exercise 5 is asking for? The object for each pokemon includes all the attributes
 
-// console.log(pokemon.length);
 
 for (let i = 0; i < pokemon.length; i++) {
     if (pokemon[i].starter && pokemon[i].number !== game.party[0].number) {
-        // console.log(pokemon[i].number);
+        // second argument above is a quick-and-dirty means of not duplicating the pokemon from exercise 4
         game.party.push(pokemon[i]);
     }
 }
-// need to make this exclude the pikachu that we added in exercise 4
-// ok I quick-and-dirty did that. currently it's not checking the entire party but w/e
+
 
 
 
@@ -99,17 +100,20 @@ Exercise 6
 1. Set the `completed` property to true for gyms with a difficulty below 3.
 2. Think about how you'd loop through the `gyms` array to check and update the `completed` property.
 
-
 Solve Exercise 6 here:
 */
 
-// console.log(game.gyms);
 // I'm going to do this with a quick-and-dirty for loop because I'm out of time. Note to self to practice forEach later
-for (let i = 0; i < game.gyms.length; i++) {
-    if (game.gyms[i].difficulty < 3) {
-        game.gyms[i].completed = true;
-    };
+
+// function completes gyms below levelComplete
+game.gymsCompletion = function (levelComplete) {
+    for (let i = 0; i < game.gyms.length; i++) {
+        if (game.gyms[i].difficulty < levelComplete) {
+            game.gyms[i].completed = true;
+        };
+    }
 }
+game.gymsCompletion(3);
 // console.log(game.gyms);
 
 
@@ -126,7 +130,6 @@ Hint:
 
 More Hints: The existing starter Pokemon will be *replaced* in your party with the Pokemon it evolved into. When working with an array of objects, the splice() array method is ideal for replacing one element with another. 
 
-
 Solve Exercise 7 here:
 */
 
@@ -139,7 +142,7 @@ for (let i = 0; i < game.party.length; i++) {
 }
 // console.log(game.party);
 
-// why would I need the SPLICE method for this??
+// why would I need the SPLICE method for this?
 
 
 
@@ -165,7 +168,6 @@ Exercise 9
 1. Can you print out all the starter Pokémon from the `pokemon` array?
 2. Think about how you can identify a starter Pokémon and then log their names.
 
-
 Solve Exercise 9 here:
 */
 
@@ -189,21 +191,16 @@ After writing this method, call it and pass in a Pokemon object of your choice f
 Solve Exercise 10 here:
 */
 
-
-
-const catchPokemon = (pokemonObj) => {
+game.catchPokemon = function (pokemonObj) {
     game.party.push(pokemonObj);
-};
+}
+game.catchPokemon(pokemon[77]);
 
-// game.push(catchPokemon)
-
-catchPokemon(pokemon[77]);
-console.log("");
-console.log("after latest catch:");
+// console.log(""); // empty line
+// console.log("after latest catch:");
 // console.log(game.party);
 
-// ok I need to brush up on adding this as a method to the game array BUT for now... this isn't right but it is close
-//                    F O L L O W      U P
+
 
 
 
@@ -220,20 +217,17 @@ Also, log the `game.items` array to confirm that the pokeball quantity is being 
 Solve Exercise 11 here:
 */
 
-
-// console.log(game.items[1]);
-const catchPokemonWithBall = (pokemonObj) => {
+game.catchPokemonWithBall = function (pokemonObj) {
     game.party.push(pokemonObj);
     // need to select game items by the NAME rather than the index but again
     // quick and dirty completion is better than incompletion when you're already behind the deadline
     game.items[1].quantity--;
 };
-
-catchPokemonWithBall(pokemon[42]);
+game.catchPokemonWithBall(pokemon[42]);
 console.log(game.items);
 
 
-//                n e e d s    f o l l o w    u p
+
 
 
 /*
@@ -244,12 +238,8 @@ Exercise 12
 Solve Exercise 12 here:
 */
 
-
-for (let i = 0; i < game.gyms.length; i++) {
-    if (game.gyms[i].difficulty < 6) {
-        game.gyms[i].completed = true;
-    };
-}
+game.gymsCompletion(6);
+// D R Y
 
 
 /*
@@ -276,7 +266,7 @@ Solve Exercise 13 here:
 */
 
 
-const gymStatus = () => {
+game.gymStatus = function () {
     const gymTally = {
         completed: 0,
         incomplete: 0
@@ -290,9 +280,8 @@ const gymStatus = () => {
     }
     console.log(gymTally)
 }
-gymStatus();
+game.gymStatus();
 
-//   again, this needs to be a method of game object rather than a standalone function
 
 
 
@@ -325,21 +314,16 @@ Exercise 15
 Solve Exercise 15 here:
 */
 
-for (let i = 0; i < game.gyms.length; i++) {
-    if (game.gyms[i].difficulty < 8) {
-        game.gyms[i].completed = true;
-    };
-}
-// as far as I'm concerned this is exactly the same as the previous two gym completion exercises
-// I don't feel the need to exclude gyms that have already been completed since the result is the same
+game.gymsCompletion(8);
+// D R Y
 
 
 /*
 Exercise 16
 1. Log the entire `game` object to the console. Take a moment to review the changes you've made throughout the exercises.
 
-
 Solve Exercise 16 here:
 */
+
 console.log(""); // empty line
 console.log(game);
