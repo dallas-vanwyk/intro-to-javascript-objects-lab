@@ -22,11 +22,19 @@ const game = {
 
 // exercise 1
 // display every item in the array
-// console.dir(pokemon, { maxArrayLength: null })
+// console.dir(pokemon, { maxArrayLength: null }) // commented this out so it didn't take up a bunch of space every time I ran the later test
 
 // log JUST the name of the pokemon number 59
 // console.log(pokemon[58].name);
 // this could be improved by using array methods to find specifically the pokemon object with # 59, but this quick-and-dirty works for now
+
+let pokemonFiftyNine = pokemon.find((pokemon) => {
+    return pokemon.number === 59;
+});
+console.log(pokemonFiftyNine);
+
+
+
 
 
 // exercise 2
