@@ -270,16 +270,16 @@ game.gymStatus = function () {
     const gymTally = {
         completed: 0,
         incomplete: 0
-    }
+    };
     for (let i = 0; i < game.gyms.length; i++) {
         if (game.gyms[i].completed) {
             gymTally.completed++;
         } else {
             gymTally.incomplete++;
-        }
-    }
-    console.log(gymTally)
-}
+        };
+    };
+    console.log(gymTally);
+};
 game.gymStatus();
 
 
@@ -299,10 +299,10 @@ Solve Exercise 14 here:
 */
 
 
-const partyCount = () => {
+game.partyCount = function () {
     return game.party.length;
-}
-// console.log(partyCount());
+};
+// console.log(game.partyCount());
 
 
 
@@ -316,6 +316,7 @@ Solve Exercise 15 here:
 
 game.gymsCompletion(8);
 // D R Y
+
 
 
 /*
