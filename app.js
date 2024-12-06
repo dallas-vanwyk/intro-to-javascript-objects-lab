@@ -36,7 +36,6 @@ console.log(pokemonFiftyNine);
 
 
 
-
 // exercise 2
 // console.log(game)
 
@@ -69,6 +68,13 @@ Solve Exercise 4 here:
 game.party.push(pokemon[6]);
 // this could be improved by using array methods to filter the pokemon array for the starter pokemon, but this quick-and-dirty works for now
 // console.log(game.party);
+
+// const starterPokemon = pokemon.filter(() => {
+
+// })
+
+
+
 
 
 
